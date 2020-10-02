@@ -1,15 +1,17 @@
 {
-  "name": "presenta-markdown-module",
+  "name": "@presenta/block-youtube",
   "version": "1.0.0",
-  "description": "Presenta Text Block Add-On to have markdown to HTML conversion",
-  "main": "index.js",
-  "unpkg": "dist/presenta-markdown-module.js",
-  "module": "dist/presenta-markdown-module.js",
+  "description": "A Presenta Block to display and control a Youtube video",
+  "main": "src/index.js",
+  "unpkg": "dist/presenta-block-youtube.min.js",
+  "module": "dist/presenta-block-youtube.min.js",
   "scripts": {
     "start": "rollup -c --watch",
+    "bump": "npm run build && git add -u && git commit -m \"bump release\" && npm version patch && git push && npm publish",
+    "preview": "browser-sync start -s -f \"dist/*, test/*\"",
     "build": "rollup -c"
   },
-  "author": "",
+  "author": "Franchino Fabio",
   "license": "BSD-3-Clause",
   "devDependencies": {
     "@babel/core": "^7.10.3",
@@ -17,9 +19,14 @@
     "@rollup/plugin-babel": "^5.0.4",
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
+    "autoprefixer": "^9.8.0",
+    "cssnano": "^4.1.10",
+    "node-sass": "^4.14.1",
+    "rollup-plugin-postcss": "^3.1.2",
+    "rollup-plugin-terser": "^7.0.2",
     "standard": "^14.3.4"
   },
   "dependencies": {
-    "marked": "^1.1.0"
+    "get-youtube-id": "^1.0.1"
   }
 }

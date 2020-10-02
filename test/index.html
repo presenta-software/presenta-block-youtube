@@ -3,21 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="../dist/presenta-markdown-module.js"></script>
+    <title>PresentaBlockYoutube</title>
+    <script src="../dist/presenta-block-youtube.min.js"></script>
 </head>
 <body>
+
+    <div id="wrapper1" style="width:300px;height:120px"></div>
+    <div id="wrapper2" style="width:300px;height:120px"></div>
+    <div id="wrapper3" style="width:300px;height:120px"></div>
+
     <script>
-        var scene = {
-            blocks:[
-                {
-                    type: 'text',
-                    text: '# Title'
-                }
-            ]
+        var block = {
+            type: 'youtube',
+            url: 'http://youtube.com/watch?v=kDuNY6u354g'
         }
-        new PresentaMarkdownModule(null, null, scene)
-        console.log(scene)
+        let w1 = document.querySelector('#wrapper1')
+        new PresentaBlockYoutube(w1, block, document.querySelector('body'))
     </script>
+
+<script>
+    var block = {
+        type: 'youtube',
+        url: 'http://youtube.com/watch?v=kDuNY6u354g'
+    }
+    let w2 = document.querySelector('#wrapper2')
+    new PresentaBlockYoutube(w2, block, document.querySelector('body'))
+</script>
+
+<script>
+    var block = {
+        type: 'youtube',
+        url: 'http://youtube.com/watch?v=kDuNY6u354g'
+    }
+
+    setTimeout(() => {
+        let w3 = document.querySelector('#wrapper3')
+        new PresentaBlockYoutube(w3, block, document.querySelector('body'))
+    }, 2000)
+    
+</script>
 </body>
 </html>
