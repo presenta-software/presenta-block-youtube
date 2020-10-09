@@ -1,53 +1,34 @@
-## PRESENTA Youtube Block
+# PRESENTA Youtube Block
 
-This block displays and manages a [Youtube](https:/www.youtube.com) video within a [PRESENTA Lib](https://lib.presenta.cc) document.
+This block displays and manages a [Youtube](https:/www.youtube.com) video within a [PRESENTA Lib](https://github.com/presenta-software/presenta-lib) document.
 
 ## Installation
 
-Please read the installation istructions for official plugins [here](https://lib.presenta.cc/extend/#installing-a-plugin).
 
-### Usage
+Please read the installation istructions for official plugins [here](https://lib.presenta.cc/extend/#installing-a-plugin) using this unique identifier: `block-youtube`
+
+## Usage
 
 To configure this block use this setting:
 
 ```js
 {
     type: 'youtube',
-    url: 'http://youtube.com/watch?v=<YOUTUBE-ID>'
+    url: '...'
 }
 ```
 
-You can also specify only the Youtube ID:
+The block will show the Youtube thumbnail for the fast preview. 
+By using the keyboard `SPACE` key you can toggle the playback betweet play/pause.
+The first time the player needs to be loaded before the playback begins.
 
-```js
-{
-    type: 'youtube',
-    url: '<YOUTUBE-ID>'
-}
-```
-
-The block will show the Youtube thumbnail for the quick preview. 
-By using the keyboard `SPACE` key you can toggle the playback.
-The first time the player will be also loaded before the playback.
-
-Additional settings alongside their defaults:
-
-```js
-{
-    type: 'youtube',
-    url: '<YOUTUBE-ID>'
-    autoplay: false,
-    loop: false,
-    preload: false
-}
-```
+| Prop name | Description                                                | Default value | Possible values             |
+| --------- | ---------------------------------------------------------- | ------------- | --------------------------- |
+| type      | Define this block type **(required)**                      |               | youtube                     |
+| url       | The full URL or the ID of the Youtube video **(required)** |               | Any valid Youtube URL or ID |
+| autoplay  | Begin the playback as soon as it's loaded                  | true          | true,false                  |
+| loop      | Loop the playback                                          | false         | Any valid class value       |
+| preload   | Preload the player                                         | false         | Any valid class value       |
+|           |                                                            |               |                             |
 
 The `preload` parameter will load the player behind the scene, this way it will be ready for immediate playback. The downside is some glitch when the block will be shown due the Youtube heavyness during initial loading.
-
-| Prop name | Description                                                  | Default value | Possible values       |
-| --------- | ------------------------------------------------------------ | ------------- | --------------------- |
-| url       | Define the ratio between width and height                    |               | youtube               |
-| autoplay  | Override `aspect` inferring it from the container size       | true          | true,false            |
-| loop      | The color scheme class to apply to the whole presentation, such as `.vibrant` |               | Any valid class value |
-| preload   | The fontkit class to apply to the whole presentation, such as `.original` |               | Any valid class value |
-|           |                                                              |               |                       |
