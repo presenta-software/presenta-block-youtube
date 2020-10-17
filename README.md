@@ -1,11 +1,11 @@
 # PRESENTA Youtube Block
 
-This block displays and manages a [Youtube](https:/www.youtube.com) video within a [PRESENTA Lib](https://github.com/presenta-software/presenta-lib) document.
+This block displays and manages a [Youtube](https://www.youtube.com) video within a [PRESENTA Lib](https://github.com/presenta-software/presenta-lib) document.
 
 ## Installation
 
 
-Please read the installation istructions for official plugins [here](https://lib.presenta.cc/extend/#installing-a-plugin) using this unique identifier: `block-youtube`
+Please read the installation istructions for official plugins [here](https://lib.presenta.cc/extend/#install-an-official-plugin) using this unique identifier: `block-youtube`
 
 ## Usage
 
@@ -32,3 +32,15 @@ The first time the player needs to be loaded before the playback begins.
 |           |                                                            |               |                             |
 
 The `preload` parameter will load the player behind the scene, this way it will be ready for immediate playback. The downside is some glitch when the block will be shown due the Youtube heavyness during initial loading.
+
+
+
+## Development
+
+Run the watcher:
+
+    npm start
+
+and the local webserver
+
+    npm run test

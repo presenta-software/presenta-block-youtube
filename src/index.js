@@ -25,12 +25,10 @@ const block = function (el, config, rootElement, projectConfig) {
   child.classList.add(css.youtube)
 
   var playerID = 'presenta-player-' + Math.random()
-  const id = config.url.length === 11 ? config.url : getYTId(config.url)
-  const thumb = `https://i.ytimg.com/vi/${id}/hqdefault.jpg` // hqdefault or maxresdefault
 
   child.innerHTML = `
     <div id="${playerID}"></div>
-    <img src="${thumb}" />
+    <img src="${config.thumb}" />
     <div class="${css.blockmouse}"></div>
   `
 
@@ -46,7 +44,7 @@ const block = function (el, config, rootElement, projectConfig) {
       player = new YT.Player(playerID, {
         height: '100%',
         width: '100%',
-        videoId: id,
+        videoId: config.ytid,
         autoplay: config.autoplay ? 1 : 0,
         loop: config.loop,
         controls: config.controls ? 1 : 0,
@@ -113,6 +111,20 @@ export default block
 
 block.install = Presenta => {
   Presenta.addBlock('youtube', block)
+  Presenta.addPreload({ type: 'youtube', field: 'thumb', as: 'image' })
+}
+
+// this is called by PRESENTA instance passing the projectConfig
+block.init = config => {
+  console.log('init YOUTUBE')
+  config.scenes.forEach(s => {
+    s.blocks.forEach(b => {
+      if (b.type === 'youtube') {
+        b.ytid = b.url.length === 11 ? b.url : getYTId(b.url)
+        b.thumb = `https://i.ytimg.com/vi/${b.ytid}/hqdefault.jpg` // hqdefault or maxresdefault
+      }
+    })
+  })
 }
 
 if (typeof window !== 'undefined' && window.Presenta) {

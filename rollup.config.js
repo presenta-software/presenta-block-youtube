@@ -29,7 +29,12 @@ export default {
     commonjs(),
     terser(),
     postcss({
-      modules: true,
+      modules: {
+        globalModulePaths: [
+          /global/
+        ]
+      },
+      autoModules: false,
       plugins: [
         autoprefixer({ grid: true }),
         cssnano({ preset: 'default' })
