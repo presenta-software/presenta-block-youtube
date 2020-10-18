@@ -111,12 +111,11 @@ export default block
 
 block.install = Presenta => {
   Presenta.addBlock('youtube', block)
-  Presenta.addPreload({ type: 'youtube', field: 'thumb', as: 'image' })
+  if (Presenta.io.addPreload) Presenta.io.addPreload({ type: 'youtube', field: 'thumb', as: 'image' })
 }
 
 // this is called by PRESENTA instance passing the projectConfig
-block.init = config => {
-  console.log('init YOUTUBE')
+block.run = config => {
   config.scenes.forEach(s => {
     s.blocks.forEach(b => {
       if (b.type === 'youtube') {
