@@ -21,6 +21,8 @@ const block = function (el, config, rootElement, projectConfig) {
   const previewMode = projectConfig.mode === 'preview'
   const presentMode = projectConfig.mode === 'present'
 
+  const keyToggle = config.key || ' '
+
   const child = document.createElement('div')
   child.classList.add(css.youtube)
 
@@ -66,6 +68,7 @@ const block = function (el, config, rootElement, projectConfig) {
 
   this.beforeDestroy = () => {
     rootElement.removeEventListener('keyup', setKeyListener)
+    el.removeEventListener('click', toggleVideo)
   }
 
   this.stepForward = (step) => {
@@ -94,13 +97,16 @@ const block = function (el, config, rootElement, projectConfig) {
   }
 
   const setKeyListener = e => {
-    if (e.key === ' ') {
+    if (e.key === keyToggle) {
       toggleVideo()
       e.stopPropagation()
       e.preventDefault()
     }
   }
-  if (presentMode) rootElement.addEventListener('keyup', setKeyListener)
+  if (presentMode) {
+    rootElement.addEventListener('keyup', setKeyListener)
+    el.addEventListener('click', toggleVideo)
+  }
 
   if (config.autoplay || config.preload) {
     if (presentMode) toggleVideo()

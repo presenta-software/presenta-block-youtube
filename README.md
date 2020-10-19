@@ -19,7 +19,7 @@ To configure this block use this setting:
 ```
 
 The block will show the Youtube thumbnail for the fast preview. 
-By using the keyboard `SPACE` key you can toggle the playback betweet play/pause.
+By using the keyboard `SPACE` key, or clicking on it, you can toggle the playback betweet play/pause.
 The first time the player needs to be loaded before the playback begins.
 
 | Prop name | Description                                                | Default value | Possible values             |
@@ -29,6 +29,7 @@ The first time the player needs to be loaded before the playback begins.
 | autoplay  | Begin the playback as soon as it's loaded                  | true          | true,false                  |
 | loop      | Loop the playback                                          | false         | Any valid class value       |
 | preload   | Preload the player                                         | false         | Any valid class value       |
+| key       | Set the keeyboard char to trigger the playback             | ' '           | Any valid `key` char        |
 |           |                                                            |               |                             |
 
 The `preload` parameter will load the player behind the scene, this way it will be ready for immediate playback. The downside is some glitch when the block will be shown due the Youtube heavyness during initial loading.
