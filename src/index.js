@@ -18,8 +18,8 @@ const loadAPI = () => {
 }
 
 const block = function (el, config, rootElement, projectConfig) {
-  const previewMode = projectConfig.mode === 'preview'
-  const presentMode = projectConfig.mode === 'present'
+  const previewMode = projectConfig && projectConfig.mode === 'preview'
+  const presentMode = projectConfig && projectConfig.mode === 'present'
 
   const keyToggle = config.key || ' '
 
