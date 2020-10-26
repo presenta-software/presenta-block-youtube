@@ -17,7 +17,7 @@ const loadAPI = () => {
   }
 }
 
-const block = function (el, config, rootElement, projectConfig) {
+const block = function (el, config, sceneConfig, rootElement, projectConfig) {
   const previewMode = projectConfig && projectConfig.mode === 'preview'
   const presentMode = projectConfig && projectConfig.mode === 'present'
 
