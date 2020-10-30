@@ -17,9 +17,9 @@ const loadAPI = () => {
   }
 }
 
-const block = function (el, config, sceneConfig, rootElement, projectConfig) {
-  const previewMode = projectConfig && projectConfig.mode === 'preview'
-  const presentMode = projectConfig && projectConfig.mode === 'present'
+const block = function (el, config) {
+  const previewMode = config._mode === 'preview'
+  const presentMode = config._mode === 'present'
 
   const keyToggle = config.key || ' '
 
@@ -67,7 +67,7 @@ const block = function (el, config, sceneConfig, rootElement, projectConfig) {
   }
 
   this.beforeDestroy = () => {
-    rootElement.removeEventListener('keyup', setKeyListener)
+    config._rootElement.removeEventListener('keyup', setKeyListener)
     el.removeEventListener('click', toggleVideo)
   }
 
@@ -104,7 +104,7 @@ const block = function (el, config, sceneConfig, rootElement, projectConfig) {
     }
   }
   if (presentMode) {
-    rootElement.addEventListener('keyup', setKeyListener)
+    config._rootElement.addEventListener('keyup', setKeyListener)
     el.addEventListener('click', toggleVideo)
   }
 
