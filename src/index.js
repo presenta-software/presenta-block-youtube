@@ -1,7 +1,8 @@
 import css from './style.css'
 import getYTId from 'get-youtube-id'
 
-var apiReady = false
+let apiReady = false
+const delayCreatePlayers = []
 const loadAPI = () => {
   const api = document.querySelector('#presenta-youtube-iframe-api-script')
   if (!api) {
@@ -13,6 +14,7 @@ const loadAPI = () => {
 
     window.onYouTubeIframeAPIReady = () => {
       apiReady = true
+      delayCreatePlayers.forEach(f => f())
     }
   }
 }
@@ -20,6 +22,7 @@ const loadAPI = () => {
 const block = function (el, config) {
   const previewMode = config._mode === 'preview'
   const presentMode = config._mode === 'present'
+  const printMode = config._mode === 'print'
 
   const keyToggle = config.key || ' '
 
@@ -92,7 +95,11 @@ const block = function (el, config) {
         playVideo()
       }
     } else {
-      createPlayer()
+      if (!apiReady) {
+        delayCreatePlayers.push(createPlayer)
+      } else {
+        createPlayer()
+      }
     }
   }
 
@@ -111,6 +118,8 @@ const block = function (el, config) {
   if (config.autoplay || config.preload) {
     if (presentMode) toggleVideo()
   }
+
+  if (printMode) toggleVideo()
 }
 
 export default block
