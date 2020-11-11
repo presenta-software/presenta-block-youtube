@@ -1,5 +1,7 @@
 # PRESENTA Youtube Block
 
+![](https://img.shields.io/npm/v/@presenta/block-youtube)
+
 This block displays and manages a [Youtube](https://www.youtube.com) video within a [PRESENTA Lib](https://github.com/presenta-software/presenta-lib) document.
 
 ## Installation
