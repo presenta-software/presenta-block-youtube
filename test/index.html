@@ -5,40 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PresentaBlockYoutube</title>
     <script src="../dist/presenta-block-youtube.min.js"></script>
+
+    <style>
+        .w{
+            width: 400px;
+            height: 300px;
+        }
+    </style>
 </head>
 <body>
 
-    <div id="wrapper1" style="width:300px;height:120px"></div>
-    <div id="wrapper2" style="width:300px;height:120px"></div>
-    <div id="wrapper3" style="width:300px;height:120px"></div>
+    <div class="w" id="wrapper1"></div>
+    <div class="w" id="wrapper2"></div>
+    <div class="w" id="wrapper3"></div>
 
     <script>
         var block = {
             type: 'youtube',
-            url: 'http://youtube.com/watch?v=kDuNY6u354g'
+            url: '3qJ9NWtv9fw',
+            autoplay: true,
+            start: 20,
+            _mode: 'present',
+            _rootElement: document.body
         }
         let w1 = document.querySelector('#wrapper1')
         new PresentaBlockYoutube(w1, block, document.querySelector('body'))
+
+        PresentaBlockYoutube.run({
+            scenes:[{
+                blocks:[block]
+            }]
+        })
     </script>
 
 <script>
     var block = {
         type: 'youtube',
-        url: 'http://youtube.com/watch?v=kDuNY6u354g'
+        url: 'http://youtube.com/watch?v=kDuNY6u354g',
+        start: 60,
+        _mode: 'present',
+        _rootElement: document.body
     }
     let w2 = document.querySelector('#wrapper2')
     new PresentaBlockYoutube(w2, block, document.querySelector('body'))
+
+    PresentaBlockYoutube.run({
+            scenes:[{
+                blocks:[block]
+            }]
+        })
 </script>
 
 <script>
     var block = {
         type: 'youtube',
-        url: 'http://youtube.com/watch?v=kDuNY6u354g'
+        url: 'http://youtube.com/watch?v=kDuNY6u354g',
+        _mode: 'present',
+        _rootElement: document.body
     }
+
+    PresentaBlockYoutube.run({
+            scenes:[{
+                blocks:[block]
+            }]
+        })
 
     setTimeout(() => {
         let w3 = document.querySelector('#wrapper3')
         new PresentaBlockYoutube(w3, block, document.querySelector('body'))
+
+        
     }, 2000)
     
 </script>

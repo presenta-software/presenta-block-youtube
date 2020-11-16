@@ -51,7 +51,7 @@ const block = function (el, config) {
         width: '100%',
         videoId: config.ytid,
         autoplay: config.autoplay ? 1 : 0,
-        loop: config.loop,
+        loop: config.loop ? 1 : 0,
         controls: config.controls ? 1 : 0,
         modestbranding: 1,
         events: {
@@ -78,7 +78,11 @@ const block = function (el, config) {
   }
 
   const playVideo = () => {
-    player.playVideo()
+    if (config.start) {
+      player.seekTo(config.start)
+    } else {
+      player.playVideo()
+    }
     child.classList.add(css.playing)
     isPlaying = true
   }

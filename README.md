@@ -30,6 +30,7 @@ The first time the player needs to be loaded before the playback begins.
 | url      | The full URL or the ID of the Youtube video **(required)** |         | Any valid Youtube URL or ID |
 | autoplay | Begin the playback as soon as it's loaded                  | true    | Boolean                     |
 | loop     | Loop the playback                                          | false   | Boolean                     |
+| start    | Time in seconds to start the video from                    | 0       | Number                      |
 | preload  | Preload the player                                         | false   | Boolean                     |
 | key      | Set the keeyboard char to trigger the playback             | ' '     | String char                 |
 |          |                                                            |         |                             |
