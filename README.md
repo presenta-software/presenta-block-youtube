@@ -37,7 +37,9 @@ The first time the player needs to be loaded before the playback begins.
 
 The `preload` parameter will load the player behind the scene, this way it will be ready for immediate playback. The downside is some glitch when the block will be shown due the Youtube heavyness during initial loading.
 
+### Volume
 
+Use the `m` key to toggle the mute. Use `+` and `-` to increase/descrease the volume by 10% factor.
 
 ## Development
 

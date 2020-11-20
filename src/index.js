@@ -113,6 +113,26 @@ const block = function (el, config) {
       e.stopPropagation()
       e.preventDefault()
     }
+
+    if (player) {
+      if (e.key === 'm') {
+        if (player.isMuted()) {
+          player.unMute()
+        } else {
+          player.mute()
+        }
+      }
+      if (e.key === '+') {
+        let v = player.getVolume()
+        v += 10
+        player.setVolume(v)
+      }
+      if (e.key === '-') {
+        let v = player.getVolume()
+        v -= 10
+        player.setVolume(v)
+      }
+    }
   }
   if (presentMode) {
     config._rootElement.addEventListener('keyup', setKeyListener)
