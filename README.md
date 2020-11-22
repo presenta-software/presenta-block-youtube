@@ -21,7 +21,7 @@ To configure this block use this setting:
 ```
 
 The block will show the Youtube thumbnail for the fast preview. 
-By using the keyboard `SPACE` key, or clicking on it, you can toggle the playback betweet play/pause.
+By using <kbd>Space</kbd>, or clicking on it, you can toggle the playback betweet play/pause.
 The first time the player needs to be loaded before the playback begins.
 
 | Option   | Description                                                | Default | Values                      |
@@ -39,7 +39,7 @@ The `preload` parameter will load the player behind the scene, this way it will 
 
 ### Volume
 
-Use the `m` key to toggle the mute. Use `+` and `-` to increase/descrease the volume by 10% factor.
+Use <kbd>m</kbd> to toggle the mute. Use <kbd>+</kbd> and <kbd>-</kbd> to increase/descrease the volume by 10% factor.
 
 ## Development
 
