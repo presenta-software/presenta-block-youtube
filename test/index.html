@@ -20,22 +20,27 @@
     <div class="w" id="wrapper3"></div>
 
     <script>
+        
+
         var block = {
             type: 'youtube',
             url: '3qJ9NWtv9fw',
             autoplay: true,
-            start: 20,
+            start: 580,
             _mode: 'present',
             _rootElement: document.body
         }
-        let w1 = document.querySelector('#wrapper1')
-        new PresentaBlockYoutube(w1, block, document.querySelector('body'))
 
         PresentaBlockYoutube.run({
             scenes:[{
                 blocks:[block]
             }]
         })
+
+        let w1 = document.querySelector('#wrapper1')
+        new PresentaBlockYoutube(w1, block, document.querySelector('body'))
+
+        
     </script>
 
 <script>
@@ -46,14 +51,17 @@
         _mode: 'present',
         _rootElement: document.body
     }
-    let w2 = document.querySelector('#wrapper2')
-    new PresentaBlockYoutube(w2, block, document.querySelector('body'))
 
     PresentaBlockYoutube.run({
             scenes:[{
                 blocks:[block]
             }]
         })
+
+    let w2 = document.querySelector('#wrapper2')
+    new PresentaBlockYoutube(w2, block, document.querySelector('body'))
+
+    
 </script>
 
 <script>

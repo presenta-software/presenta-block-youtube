@@ -63,7 +63,13 @@ const block = function (el, config) {
               player.pauseVideo()
             }
           },
-          onStateChange: e => console.log('change', e)
+          onStateChange: e => {
+            console.log('video changed', e.data)
+            if (e.data === 0) {
+              console.log('ended')
+              child.classList.remove(css.playing)
+            }
+          }
         }
       })
     })
