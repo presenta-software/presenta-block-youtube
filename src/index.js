@@ -1,5 +1,4 @@
 import css from './style.css'
-import getYTId from 'get-youtube-id'
 
 let apiReady = false
 const delayCreatePlayers = []
@@ -30,12 +29,12 @@ const block = function (el, config) {
   child.classList.add(css.youtube)
 
   var playerID = 'presenta-player-' + Math.random()
+  var blocker = !config.controls ? `<div class="${css.blockmouse}"></div>` : ''
 
   child.innerHTML = `
     <div id="${playerID}"></div>
     <img src="${config.thumb}" />
-    <div class="${css.blockmouse}"></div>
-  `
+    ${blocker}`
 
   el.appendChild(child)
 
@@ -49,11 +48,15 @@ const block = function (el, config) {
       player = new YT.Player(playerID, {
         height: '100%',
         width: '100%',
-        videoId: config.ytid,
-        autoplay: config.autoplay ? 1 : 0,
-        loop: config.loop ? 1 : 0,
-        controls: config.controls ? 1 : 0,
-        modestbranding: 1,
+        videoId: config.url,
+        playerVars: {
+          autoplay: config.autoplay ? 1 : 0,
+          controls: config.controls ? 1 : 0,
+          loop: config.loop ? 1 : 0,
+          modestbranding: 1,
+          end: config.end || null,
+          start: config.start || 0
+        },
         events: {
           onReady: e => {
             if (!config.preload) {
@@ -64,9 +67,7 @@ const block = function (el, config) {
             }
           },
           onStateChange: e => {
-            console.log('video changed', e.data)
             if (e.data === 0) {
-              console.log('ended')
               child.classList.remove(css.playing)
             }
           }
@@ -84,11 +85,11 @@ const block = function (el, config) {
   }
 
   const playVideo = () => {
-    if (config.start) {
-      player.seekTo(config.start)
-    } else {
-      player.playVideo()
-    }
+    // if (config.start) {
+    //   player.seekTo(config.start)
+    // } else {
+    player.playVideo()
+    // }
     child.classList.add(css.playing)
     isPlaying = true
   }
@@ -164,8 +165,7 @@ block.run = config => {
   config.scenes.forEach(s => {
     s.blocks.forEach(b => {
       if (b.type === 'youtube') {
-        b.ytid = b.url.length === 11 ? b.url : getYTId(b.url)
-        b.thumb = `https://i.ytimg.com/vi/${b.ytid}/hqdefault.jpg` // hqdefault or maxresdefault
+        b.thumb = `https://i.ytimg.com/vi/${b.url}/hqdefault.jpg` // hqdefault or maxresdefault
       }
     })
   })
