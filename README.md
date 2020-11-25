@@ -4,51 +4,25 @@
 
 This block displays and manages a [Youtube](https://www.youtube.com) video within a [PRESENTA Lib](https://github.com/presenta-software/presenta-lib) document.
 
-## Installation
 
+## Documentation
 
-Please read the installation istructions for official plugins [here](https://lib.presenta.cc/extend/#install-an-official-plugin) using this unique identifier: `block-youtube`
+Full documentation can be found [here](https://lib.presenta.cc/plugins/blocks/youtube).
 
-## Usage
+## Contribute
 
-To configure this block use this setting:
+### Development
 
-```js
-{
-    type: 'youtube',
-    url: '...'
-}
-```
+To start a development session:
 
-The block will show the Youtube thumbnail for the fast preview. 
-By using <kbd>Space</kbd>, or clicking on it, you can toggle the playback betweet play/pause.
-The first time the player needs to be loaded before the playback begins.
+	npm start
 
-| Option   | Description                                               | Default | Values      |
-| -------- | --------------------------------------------------------- | ------- | ----------- |
-| type     | Define this block type **(required)**                     |         | "youtube"   |
-| url      | The ID of the Youtube video **(required)**                |         | String      |
-| autoplay | Begin the playback as soon as it's loaded                 | false   | Boolean     |
-| loop     | Loop the playback                                         | false   | Boolean     |
-| start    | Time in seconds to start the video from                   | 0       | Number      |
-| end      | Time in seconds (since the beginning) to end the video to | null    | Number      |
-| preload  | Preload the player                                        | false   | Boolean     |
-| controls | Show the Youtube controls                                 | false   | Boolean     |
-| key      | Set the keeyboard char to trigger the playback            | ' '     | String char |
-|          |                                                           |         |             |
+To build a release:
 
-The `preload` parameter will load the player behind the scene, this way it will be ready for immediate playback. The downside is some glitch when the block will be shown due the Youtube heavyness during initial loading.
+	npm run build
 
-### Volume
+## Licence
 
-Use <kbd>m</kbd> to toggle the mute. Use <kbd>+</kbd> and <kbd>-</kbd> to increase/descrease the volume by 10% factor.
+This plugin is released under the [3-Clause BSD license](LICENSE).
 
-## Development
-
-Run the watcher:
-
-    npm start
-
-and the local webserver
-
-    npm run test
+Copyright © 2020 Fabio Franchino, [https://fabiofranchino.com](https://fabiofranchino.com)
