@@ -38,8 +38,6 @@ const block = function (el, config) {
 
   el.appendChild(child)
 
-  loadAPI()
-
   var player
   let isPlaying = false
 
@@ -156,8 +154,13 @@ const block = function (el, config) {
 export default block
 
 block.install = Presenta => {
+  loadAPI()
   Presenta.addBlock('youtube', block)
   if (Presenta.io.addPreload) Presenta.io.addPreload({ type: 'youtube', field: 'thumb', as: 'image' })
+}
+
+// this is called by PRESENTA instance passing the plugin config
+block.init = mod => {
 }
 
 // this is called by PRESENTA instance passing the projectConfig
@@ -165,7 +168,7 @@ block.run = config => {
   config.scenes.forEach(s => {
     s.blocks.forEach(b => {
       if (b.type === 'youtube') {
-        b.thumb = `https://i.ytimg.com/vi/${b.url}/hqdefault.jpg` // hqdefault or maxresdefault
+        b.thumb = `https://i.ytimg.com/vi/${b.url}/maxresdefault.jpg` // hqdefault or maxresdefault
       }
     })
   })
