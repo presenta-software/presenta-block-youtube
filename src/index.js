@@ -41,6 +41,8 @@ const block = function (el, config) {
   var player
   let isPlaying = false
 
+  // loadAPI()
+
   const createPlayer = () => {
     setTimeout(() => {
       player = new YT.Player(playerID, {
@@ -168,7 +170,7 @@ block.run = config => {
   config.scenes.forEach(s => {
     s.blocks.forEach(b => {
       if (b.type === 'youtube') {
-        b.thumb = `https://i.ytimg.com/vi/${b.url}/maxresdefault.jpg` // hqdefault or maxresdefault
+        b.thumb = `https://i.ytimg.com/vi/${b.url}/hqdefault.jpg` // hqdefault or maxresdefault
       }
     })
   })
