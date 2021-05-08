@@ -1,6 +1,6 @@
 {
   "name": "@presenta/block-youtube",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "A Presenta Block to display and control a Youtube video",
   "main": "src/index.js",
   "unpkg": "dist/presenta-block-youtube.min.js",
