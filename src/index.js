@@ -23,6 +23,8 @@ const block = function (el, config) {
   const presentMode = config._mode === 'present'
   const printMode = config._mode === 'print'
 
+  if (!config.url) return false
+
   const keyToggle = config.key || ' '
 
   const child = document.createElement('div')
